@@ -1,0 +1,608 @@
+
+BlueButter.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000004  00803f00  00000296  0000032a  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000296  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000016  00803f04  00803f04  0000032e  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  0000032e  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000360  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000250  00000000  00000000  0000039c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   000031c0  00000000  00000000  000005ec  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00001c2d  00000000  00000000  000037ac  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000010e7  00000000  00000000  000053d9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  000003e0  00000000  00000000  000064c0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00001561  00000000  00000000  000068a0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000005bc  00000000  00000000  00007e01  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000190  00000000  00000000  000083bd  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	19 c0       	rjmp	.+50     	; 0x34 <__ctors_end>
+   2:	33 c0       	rjmp	.+102    	; 0x6a <__bad_interrupt>
+   4:	32 c0       	rjmp	.+100    	; 0x6a <__bad_interrupt>
+   6:	31 c0       	rjmp	.+98     	; 0x6a <__bad_interrupt>
+   8:	30 c0       	rjmp	.+96     	; 0x6a <__bad_interrupt>
+   a:	2f c0       	rjmp	.+94     	; 0x6a <__bad_interrupt>
+   c:	2e c0       	rjmp	.+92     	; 0x6a <__bad_interrupt>
+   e:	2d c0       	rjmp	.+90     	; 0x6a <__bad_interrupt>
+  10:	2c c0       	rjmp	.+88     	; 0x6a <__bad_interrupt>
+  12:	2b c0       	rjmp	.+86     	; 0x6a <__bad_interrupt>
+  14:	2a c0       	rjmp	.+84     	; 0x6a <__bad_interrupt>
+  16:	29 c0       	rjmp	.+82     	; 0x6a <__bad_interrupt>
+  18:	28 c0       	rjmp	.+80     	; 0x6a <__bad_interrupt>
+  1a:	27 c0       	rjmp	.+78     	; 0x6a <__bad_interrupt>
+  1c:	26 c0       	rjmp	.+76     	; 0x6a <__bad_interrupt>
+  1e:	25 c0       	rjmp	.+74     	; 0x6a <__bad_interrupt>
+  20:	24 c0       	rjmp	.+72     	; 0x6a <__bad_interrupt>
+  22:	23 c0       	rjmp	.+70     	; 0x6a <__bad_interrupt>
+  24:	22 c0       	rjmp	.+68     	; 0x6a <__bad_interrupt>
+  26:	21 c0       	rjmp	.+66     	; 0x6a <__bad_interrupt>
+  28:	20 c0       	rjmp	.+64     	; 0x6a <__bad_interrupt>
+  2a:	1f c0       	rjmp	.+62     	; 0x6a <__bad_interrupt>
+  2c:	c6 c0       	rjmp	.+396    	; 0x1ba <__vector_22>
+  2e:	ee c0       	rjmp	.+476    	; 0x20c <__vector_23>
+  30:	1c c0       	rjmp	.+56     	; 0x6a <__bad_interrupt>
+  32:	1b c0       	rjmp	.+54     	; 0x6a <__bad_interrupt>
+
+00000034 <__ctors_end>:
+  34:	11 24       	eor	r1, r1
+  36:	1f be       	out	0x3f, r1	; 63
+  38:	cf ef       	ldi	r28, 0xFF	; 255
+  3a:	cd bf       	out	0x3d, r28	; 61
+  3c:	df e3       	ldi	r29, 0x3F	; 63
+  3e:	de bf       	out	0x3e, r29	; 62
+
+00000040 <__do_copy_data>:
+  40:	1f e3       	ldi	r17, 0x3F	; 63
+  42:	a0 e0       	ldi	r26, 0x00	; 0
+  44:	bf e3       	ldi	r27, 0x3F	; 63
+  46:	e6 e9       	ldi	r30, 0x96	; 150
+  48:	f2 e0       	ldi	r31, 0x02	; 2
+  4a:	02 c0       	rjmp	.+4      	; 0x50 <__do_copy_data+0x10>
+  4c:	05 90       	lpm	r0, Z+
+  4e:	0d 92       	st	X+, r0
+  50:	a4 30       	cpi	r26, 0x04	; 4
+  52:	b1 07       	cpc	r27, r17
+  54:	d9 f7       	brne	.-10     	; 0x4c <__do_copy_data+0xc>
+
+00000056 <__do_clear_bss>:
+  56:	2f e3       	ldi	r18, 0x3F	; 63
+  58:	a4 e0       	ldi	r26, 0x04	; 4
+  5a:	bf e3       	ldi	r27, 0x3F	; 63
+  5c:	01 c0       	rjmp	.+2      	; 0x60 <.do_clear_bss_start>
+
+0000005e <.do_clear_bss_loop>:
+  5e:	1d 92       	st	X+, r1
+
+00000060 <.do_clear_bss_start>:
+  60:	aa 31       	cpi	r26, 0x1A	; 26
+  62:	b2 07       	cpc	r27, r18
+  64:	e1 f7       	brne	.-8      	; 0x5e <.do_clear_bss_loop>
+  66:	04 d0       	rcall	.+8      	; 0x70 <main>
+  68:	14 c1       	rjmp	.+552    	; 0x292 <_exit>
+
+0000006a <__bad_interrupt>:
+  6a:	ca cf       	rjmp	.-108    	; 0x0 <__vectors>
+
+0000006c <atmel_start_init>:
+/**
+ * Initializes MCU, drivers and middleware in the project
+ **/
+void atmel_start_init(void)
+{
+	system_init();
+  6c:	4f d0       	rcall	.+158    	; 0x10c <system_init>
+  6e:	08 95       	ret
+
+00000070 <main>:
+#include <util/delay.h>
+
+int main(void)
+{
+	/* Initializes MCU, drivers and middleware */
+	atmel_start_init();
+  70:	fd df       	rcall	.-6      	; 0x6c <atmel_start_init>
+ *                  false = Pin level set to "low" state
+ */
+static inline void PORTB_set_pin_level(const uint8_t pin, const bool level)
+{
+	if (level == true) {
+		VPORTB.OUT |= (1 << pin);
+  72:	29 9a       	sbi	0x05, 1	; 5
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  74:	2a e6       	ldi	r18, 0x6A	; 106
+  76:	84 e0       	ldi	r24, 0x04	; 4
+  78:	91 e0       	ldi	r25, 0x01	; 1
+  7a:	21 50       	subi	r18, 0x01	; 1
+  7c:	80 40       	sbci	r24, 0x00	; 0
+  7e:	90 40       	sbci	r25, 0x00	; 0
+  80:	e1 f7       	brne	.-8      	; 0x7a <main+0xa>
+  82:	00 c0       	rjmp	.+0      	; 0x84 <main+0x14>
+	} else {
+		VPORTB.OUT &= ~(1 << pin);
+  84:	29 98       	cbi	0x05, 1	; 5
+  86:	2a e6       	ldi	r18, 0x6A	; 106
+  88:	84 e0       	ldi	r24, 0x04	; 4
+  8a:	91 e0       	ldi	r25, 0x01	; 1
+  8c:	21 50       	subi	r18, 0x01	; 1
+  8e:	80 40       	sbci	r24, 0x00	; 0
+  90:	90 40       	sbci	r25, 0x00	; 0
+  92:	e1 f7       	brne	.-8      	; 0x8c <main+0x1c>
+  94:	00 c0       	rjmp	.+0      	; 0x96 <main+0x26>
+ *                  false = Pin level set to "low" state
+ */
+static inline void PORTB_set_pin_level(const uint8_t pin, const bool level)
+{
+	if (level == true) {
+		VPORTB.OUT |= (1 << pin);
+  96:	29 9a       	sbi	0x05, 1	; 5
+  98:	2a e6       	ldi	r18, 0x6A	; 106
+  9a:	84 e0       	ldi	r24, 0x04	; 4
+  9c:	91 e0       	ldi	r25, 0x01	; 1
+  9e:	21 50       	subi	r18, 0x01	; 1
+  a0:	80 40       	sbci	r24, 0x00	; 0
+  a2:	90 40       	sbci	r25, 0x00	; 0
+  a4:	e1 f7       	brne	.-8      	; 0x9e <main+0x2e>
+  a6:	00 c0       	rjmp	.+0      	; 0xa8 <main+0x38>
+	} else {
+		VPORTB.OUT &= ~(1 << pin);
+  a8:	29 98       	cbi	0x05, 1	; 5
+  aa:	2a e2       	ldi	r18, 0x2A	; 42
+  ac:	8c e2       	ldi	r24, 0x2C	; 44
+  ae:	9a e0       	ldi	r25, 0x0A	; 10
+  b0:	21 50       	subi	r18, 0x01	; 1
+  b2:	80 40       	sbci	r24, 0x00	; 0
+  b4:	90 40       	sbci	r25, 0x00	; 0
+  b6:	e1 f7       	brne	.-8      	; 0xb0 <main+0x40>
+  b8:	00 00       	nop
+  ba:	db cf       	rjmp	.-74     	; 0x72 <main+0x2>
+
+000000bc <ADC_0_init>:
+
+	// ADC0.WINHT = 0x0; /* Window Comparator High Threshold: 0x0 */
+
+	// ADC0.WINLT = 0x0; /* Window Comparator Low Threshold: 0x0 */
+
+	ADC0.CTRLA = 1 << ADC_ENABLE_bp     /* ADC Enable: enabled */
+  bc:	81 e0       	ldi	r24, 0x01	; 1
+  be:	80 93 00 06 	sts	0x0600, r24	; 0x800600 <__TEXT_REGION_LENGTH__+0x700600>
+	             | 0 << ADC_FREERUN_bp  /* ADC Freerun mode: disabled */
+	             | ADC_RESSEL_10BIT_gc  /* 10-bit mode */
+	             | 0 << ADC_RUNSTBY_bp; /* Run standby mode: disabled */
+
+	return 0;
+}
+  c2:	80 e0       	ldi	r24, 0x00	; 0
+  c4:	08 95       	ret
+
+000000c6 <BOD_init>:
+	//		 | BOD_VLMCFG_ABOVE_gc; /* Interrupt when supply goes above VLM level */
+
+	// BOD.VLMCTRLA = BOD_VLMLVL_5ABOVE_gc; /* VLM threshold 5% above BOD level */
+
+	return 0;
+}
+  c6:	80 e0       	ldi	r24, 0x00	; 0
+  c8:	08 95       	ret
+
+000000ca <CLKCTRL_init>:
+	// ccp_write_io((void*)&(CLKCTRL.MCLKCTRLA),CLKCTRL_CLKSEL_OSC20M_gc /* 20MHz Internal Oscillator (OSC20M) */);
+
+	// ccp_write_io((void*)&(CLKCTRL.MCLKLOCK),0 << CLKCTRL_LOCKEN_bp /* lock enable: disabled */);
+
+	return 0;
+}
+  ca:	80 e0       	ldi	r24, 0x00	; 0
+  cc:	08 95       	ret
+
+000000ce <CPUINT_init>:
+	// CPUINT.LVL0PRI = 0x0 << CPUINT_LVL0PRI_gp; /* Interrupt Level Priority: 0x0 */
+
+	// CPUINT.LVL1VEC = 0x0 << CPUINT_LVL1VEC_gp; /* Interrupt Vector with High Priority: 0x0 */
+
+	return 0;
+}
+  ce:	80 e0       	ldi	r24, 0x00	; 0
+  d0:	08 95       	ret
+
+000000d2 <mcu_init>:
+}
+
+void TIMER_0_initialization(void)
+{
+
+	TIMER_0_init();
+  d2:	e0 e1       	ldi	r30, 0x10	; 16
+  d4:	f4 e0       	ldi	r31, 0x04	; 4
+  d6:	80 81       	ld	r24, Z
+  d8:	88 60       	ori	r24, 0x08	; 8
+  da:	81 93       	st	Z+, r24
+  dc:	e8 31       	cpi	r30, 0x18	; 24
+  de:	84 e0       	ldi	r24, 0x04	; 4
+  e0:	f8 07       	cpc	r31, r24
+  e2:	c9 f7       	brne	.-14     	; 0xd6 <mcu_init+0x4>
+  e4:	e0 e3       	ldi	r30, 0x30	; 48
+  e6:	f4 e0       	ldi	r31, 0x04	; 4
+  e8:	80 81       	ld	r24, Z
+  ea:	88 60       	ori	r24, 0x08	; 8
+  ec:	81 93       	st	Z+, r24
+  ee:	e8 33       	cpi	r30, 0x38	; 56
+  f0:	84 e0       	ldi	r24, 0x04	; 4
+  f2:	f8 07       	cpc	r31, r24
+  f4:	c9 f7       	brne	.-14     	; 0xe8 <mcu_init+0x16>
+  f6:	08 95       	ret
+
+000000f8 <USART_0_initialization>:
+  f8:	23 98       	cbi	0x04, 3	; 4
+  fa:	e3 e3       	ldi	r30, 0x33	; 51
+  fc:	f4 e0       	ldi	r31, 0x04	; 4
+  fe:	80 81       	ld	r24, Z
+ 100:	87 7f       	andi	r24, 0xF7	; 247
+ 102:	80 83       	st	Z, r24
+ 104:	22 9a       	sbi	0x04, 2	; 4
+ 106:	2a 98       	cbi	0x05, 2	; 5
+ 108:	aa d0       	rcall	.+340    	; 0x25e <USART_0_init>
+ 10a:	08 95       	ret
+
+0000010c <system_init>:
+/**
+ * \brief System initialization
+ */
+void system_init()
+{
+	mcu_init();
+ 10c:	e2 df       	rcall	.-60     	; 0xd2 <mcu_init>
+	switch (dir) {
+	case PORT_DIR_IN:
+		VPORTA.DIR &= ~(1 << pin);
+		break;
+	case PORT_DIR_OUT:
+		VPORTA.DIR |= (1 << pin);
+ 10e:	07 9a       	sbi	0x00, 7	; 0
+ *                  false = Pin level set to "low" state
+ */
+static inline void PORTA_set_pin_level(const uint8_t pin, const bool level)
+{
+	if (level == true) {
+		VPORTA.OUT |= (1 << pin);
+ 110:	0f 9a       	sbi	0x01, 7	; 1
+ */
+static inline void PORTB_pin_set_isc(const uint8_t pin, const PORT_ISC_t isc)
+{
+	volatile uint8_t *port_pin_ctrl = ((uint8_t *)&PORTB + 0x10 + pin);
+
+	*port_pin_ctrl = (*port_pin_ctrl & ~PORT_ISC_gm) | isc;
+ 112:	e0 e3       	ldi	r30, 0x30	; 48
+ 114:	f4 e0       	ldi	r31, 0x04	; 4
+ 116:	80 81       	ld	r24, Z
+ 118:	88 7f       	andi	r24, 0xF8	; 248
+ 11a:	84 60       	ori	r24, 0x04	; 4
+ 11c:	80 83       	st	Z, r24
+	volatile uint8_t *port_pin_ctrl = ((uint8_t *)&PORTB + 0x10 + pin);
+
+	if (pull_mode == PORT_PULL_UP) {
+		*port_pin_ctrl |= PORT_PULLUPEN_bm;
+	} else if (pull_mode == PORT_PULL_OFF) {
+		*port_pin_ctrl &= ~PORT_PULLUPEN_bm;
+ 11e:	80 81       	ld	r24, Z
+ 120:	87 7f       	andi	r24, 0xF7	; 247
+ 122:	80 83       	st	Z, r24
+	switch (dir) {
+	case PORT_DIR_IN:
+		VPORTB.DIR &= ~(1 << pin);
+		break;
+	case PORT_DIR_OUT:
+		VPORTB.DIR |= (1 << pin);
+ 124:	21 9a       	sbi	0x04, 1	; 4
+static inline void PORTB_set_pin_level(const uint8_t pin, const bool level)
+{
+	if (level == true) {
+		VPORTB.OUT |= (1 << pin);
+	} else {
+		VPORTB.OUT &= ~(1 << pin);
+ 126:	29 98       	cbi	0x05, 1	; 5
+	    // <id> pad_initial_level
+	    // <false"> Low
+	    // <true"> High
+	    false);
+
+	CLKCTRL_init();
+ 128:	d0 df       	rcall	.-96     	; 0xca <CLKCTRL_init>
+
+	RTC_0_init();
+ 12a:	08 d0       	rcall	.+16     	; 0x13c <RTC_0_init>
+
+	VREF_0_init();
+ 12c:	b0 d0       	rcall	.+352    	; 0x28e <VREF_0_init>
+
+/* Configure pins and initialize registers */
+void ADC_0_initialization(void)
+{
+
+	ADC_0_init();
+ 12e:	c6 df       	rcall	.-116    	; 0xbc <ADC_0_init>
+
+	VREF_0_init();
+
+	ADC_0_initialization();
+
+	USART_0_initialization();
+ 130:	e3 df       	rcall	.-58     	; 0xf8 <USART_0_initialization>
+}
+
+void TIMER_0_initialization(void)
+{
+
+	TIMER_0_init();
+ 132:	0c d0       	rcall	.+24     	; 0x14c <TIMER_0_init>
+
+	USART_0_initialization();
+
+	TIMER_0_initialization();
+
+	CPUINT_init();
+ 134:	cc df       	rcall	.-104    	; 0xce <CPUINT_init>
+
+	SLPCTRL_init();
+ 136:	08 d0       	rcall	.+16     	; 0x148 <SLPCTRL_init>
+
+	BOD_init();
+ 138:	c6 df       	rcall	.-116    	; 0xc6 <BOD_init>
+ 13a:	08 95       	ret
+
+0000013c <RTC_0_init>:
+ * \return Initialization status.
+ */
+int8_t RTC_0_init()
+{
+
+	while (RTC.STATUS > 0) { /* Wait for all register to be synchronized */
+ 13c:	e0 e4       	ldi	r30, 0x40	; 64
+ 13e:	f1 e0       	ldi	r31, 0x01	; 1
+ 140:	81 81       	ldd	r24, Z+1	; 0x01
+ 142:	81 11       	cpse	r24, r1
+ 144:	fd cf       	rjmp	.-6      	; 0x140 <RTC_0_init+0x4>
+	// RTC.PITDBGCTRL = 0 << RTC_DBGRUN_bp; /* Run in debug: disabled */
+
+	// RTC.PITINTCTRL = 0 << RTC_PI_bp; /* Periodic Interrupt: disabled */
+
+	return 0;
+}
+ 146:	08 95       	ret
+
+00000148 <SLPCTRL_init>:
+
+	// SLPCTRL.CTRLA = 0 << SLPCTRL_SEN_bp /* Sleep enable: disabled */
+	//		 | SLPCTRL_SMODE_IDLE_gc; /* Idle mode */
+
+	return 0;
+}
+ 148:	80 e0       	ldi	r24, 0x00	; 0
+ 14a:	08 95       	ret
+
+0000014c <TIMER_0_init>:
+
+	// TCA0.SINGLE.CTRLA = TCA_SINGLE_CLKSEL_DIV1_gc /* System Clock */
+	//		 | 0 << TCA_SINGLE_ENABLE_bp; /* Module Enable: disabled */
+
+	return 0;
+}
+ 14c:	80 e0       	ldi	r24, 0x00	; 0
+ 14e:	08 95       	ret
+
+00000150 <USART_0_default_rx_isr_cb>:
+	USART_0_tx_head = tmphead;
+	ENTER_CRITICAL(W);
+	USART_0_tx_elements++;
+	EXIT_CRITICAL(W);
+	/* Enable UDRE interrupt */
+	USART0.CTRLA |= (1 << USART_DREIE_bp);
+ 150:	90 91 00 08 	lds	r25, 0x0800	; 0x800800 <__TEXT_REGION_LENGTH__+0x700800>
+ 154:	e0 91 11 3f 	lds	r30, 0x3F11	; 0x803f11 <USART_0_rx_head>
+ 158:	ef 5f       	subi	r30, 0xFF	; 255
+ 15a:	e7 70       	andi	r30, 0x07	; 7
+ 15c:	80 91 10 3f 	lds	r24, 0x3F10	; 0x803f10 <USART_0_rx_tail>
+ 160:	e8 17       	cp	r30, r24
+ 162:	59 f0       	breq	.+22     	; 0x17a <USART_0_default_rx_isr_cb+0x2a>
+ 164:	e0 93 11 3f 	sts	0x3F11, r30	; 0x803f11 <USART_0_rx_head>
+ 168:	f0 e0       	ldi	r31, 0x00	; 0
+ 16a:	ee 5e       	subi	r30, 0xEE	; 238
+ 16c:	f0 4c       	sbci	r31, 0xC0	; 192
+ 16e:	90 83       	st	Z, r25
+ 170:	80 91 0f 3f 	lds	r24, 0x3F0F	; 0x803f0f <USART_0_rx_elements>
+ 174:	8f 5f       	subi	r24, 0xFF	; 255
+ 176:	80 93 0f 3f 	sts	0x3F0F, r24	; 0x803f0f <USART_0_rx_elements>
+ 17a:	08 95       	ret
+
+0000017c <USART_0_default_udre_isr_cb>:
+ 17c:	80 91 04 3f 	lds	r24, 0x3F04	; 0x803f04 <__data_end>
+ 180:	88 23       	and	r24, r24
+ 182:	89 f0       	breq	.+34     	; 0x1a6 <USART_0_default_udre_isr_cb+0x2a>
+ 184:	e0 91 05 3f 	lds	r30, 0x3F05	; 0x803f05 <USART_0_tx_tail>
+ 188:	ef 5f       	subi	r30, 0xFF	; 255
+ 18a:	e7 70       	andi	r30, 0x07	; 7
+ 18c:	e0 93 05 3f 	sts	0x3F05, r30	; 0x803f05 <USART_0_tx_tail>
+ 190:	f0 e0       	ldi	r31, 0x00	; 0
+ 192:	e9 5f       	subi	r30, 0xF9	; 249
+ 194:	f0 4c       	sbci	r31, 0xC0	; 192
+ 196:	80 81       	ld	r24, Z
+ 198:	80 93 02 08 	sts	0x0802, r24	; 0x800802 <__TEXT_REGION_LENGTH__+0x700802>
+ 19c:	80 91 04 3f 	lds	r24, 0x3F04	; 0x803f04 <__data_end>
+ 1a0:	81 50       	subi	r24, 0x01	; 1
+ 1a2:	80 93 04 3f 	sts	0x3F04, r24	; 0x803f04 <__data_end>
+ 1a6:	80 91 04 3f 	lds	r24, 0x3F04	; 0x803f04 <__data_end>
+ 1aa:	81 11       	cpse	r24, r1
+ 1ac:	05 c0       	rjmp	.+10     	; 0x1b8 <USART_0_default_udre_isr_cb+0x3c>
+ 1ae:	e0 e0       	ldi	r30, 0x00	; 0
+ 1b0:	f8 e0       	ldi	r31, 0x08	; 8
+ 1b2:	85 81       	ldd	r24, Z+5	; 0x05
+ 1b4:	8f 7d       	andi	r24, 0xDF	; 223
+ 1b6:	85 83       	std	Z+5, r24	; 0x05
+ 1b8:	08 95       	ret
+
+000001ba <__vector_22>:
+ 1ba:	1f 92       	push	r1
+ 1bc:	0f 92       	push	r0
+ 1be:	0f b6       	in	r0, 0x3f	; 63
+ 1c0:	0f 92       	push	r0
+ 1c2:	11 24       	eor	r1, r1
+ 1c4:	2f 93       	push	r18
+ 1c6:	3f 93       	push	r19
+ 1c8:	4f 93       	push	r20
+ 1ca:	5f 93       	push	r21
+ 1cc:	6f 93       	push	r22
+ 1ce:	7f 93       	push	r23
+ 1d0:	8f 93       	push	r24
+ 1d2:	9f 93       	push	r25
+ 1d4:	af 93       	push	r26
+ 1d6:	bf 93       	push	r27
+ 1d8:	ef 93       	push	r30
+ 1da:	ff 93       	push	r31
+ 1dc:	e0 91 02 3f 	lds	r30, 0x3F02	; 0x803f02 <USART_0_rx_isr_cb>
+ 1e0:	f0 91 03 3f 	lds	r31, 0x3F03	; 0x803f03 <USART_0_rx_isr_cb+0x1>
+ 1e4:	30 97       	sbiw	r30, 0x00	; 0
+ 1e6:	09 f0       	breq	.+2      	; 0x1ea <__vector_22+0x30>
+ 1e8:	09 95       	icall
+ 1ea:	ff 91       	pop	r31
+ 1ec:	ef 91       	pop	r30
+ 1ee:	bf 91       	pop	r27
+ 1f0:	af 91       	pop	r26
+ 1f2:	9f 91       	pop	r25
+ 1f4:	8f 91       	pop	r24
+ 1f6:	7f 91       	pop	r23
+ 1f8:	6f 91       	pop	r22
+ 1fa:	5f 91       	pop	r21
+ 1fc:	4f 91       	pop	r20
+ 1fe:	3f 91       	pop	r19
+ 200:	2f 91       	pop	r18
+ 202:	0f 90       	pop	r0
+ 204:	0f be       	out	0x3f, r0	; 63
+ 206:	0f 90       	pop	r0
+ 208:	1f 90       	pop	r1
+ 20a:	18 95       	reti
+
+0000020c <__vector_23>:
+ 20c:	1f 92       	push	r1
+ 20e:	0f 92       	push	r0
+ 210:	0f b6       	in	r0, 0x3f	; 63
+ 212:	0f 92       	push	r0
+ 214:	11 24       	eor	r1, r1
+ 216:	2f 93       	push	r18
+ 218:	3f 93       	push	r19
+ 21a:	4f 93       	push	r20
+ 21c:	5f 93       	push	r21
+ 21e:	6f 93       	push	r22
+ 220:	7f 93       	push	r23
+ 222:	8f 93       	push	r24
+ 224:	9f 93       	push	r25
+ 226:	af 93       	push	r26
+ 228:	bf 93       	push	r27
+ 22a:	ef 93       	push	r30
+ 22c:	ff 93       	push	r31
+ 22e:	e0 91 00 3f 	lds	r30, 0x3F00	; 0x803f00 <USART_0_udre_isr_cb>
+ 232:	f0 91 01 3f 	lds	r31, 0x3F01	; 0x803f01 <USART_0_udre_isr_cb+0x1>
+ 236:	30 97       	sbiw	r30, 0x00	; 0
+ 238:	09 f0       	breq	.+2      	; 0x23c <__vector_23+0x30>
+ 23a:	09 95       	icall
+ 23c:	ff 91       	pop	r31
+ 23e:	ef 91       	pop	r30
+ 240:	bf 91       	pop	r27
+ 242:	af 91       	pop	r26
+ 244:	9f 91       	pop	r25
+ 246:	8f 91       	pop	r24
+ 248:	7f 91       	pop	r23
+ 24a:	6f 91       	pop	r22
+ 24c:	5f 91       	pop	r21
+ 24e:	4f 91       	pop	r20
+ 250:	3f 91       	pop	r19
+ 252:	2f 91       	pop	r18
+ 254:	0f 90       	pop	r0
+ 256:	0f be       	out	0x3f, r0	; 63
+ 258:	0f 90       	pop	r0
+ 25a:	1f 90       	pop	r1
+ 25c:	18 95       	reti
+
+0000025e <USART_0_init>:
+ * \retval 1 the USART init was not successful
+ */
+int8_t USART_0_init()
+{
+
+	USART0.BAUD = (uint16_t)USART0_BAUD_RATE(9600); /* set baud rate register */
+ 25e:	e0 e0       	ldi	r30, 0x00	; 0
+ 260:	f8 e0       	ldi	r31, 0x08	; 8
+ 262:	8d e6       	ldi	r24, 0x6D	; 109
+ 264:	95 e0       	ldi	r25, 0x05	; 5
+ 266:	80 87       	std	Z+8, r24	; 0x08
+ 268:	91 87       	std	Z+9, r25	; 0x09
+
+	USART0.CTRLA = 0 << USART_ABEIE_bp    /* Auto-baud Error Interrupt Enable: disabled */
+ 26a:	80 e8       	ldi	r24, 0x80	; 128
+ 26c:	85 83       	std	Z+5, r24	; 0x05
+	               | USART_RS485_OFF_gc   /* RS485 Mode disabled */
+	               | 1 << USART_RXCIE_bp  /* Receive Complete Interrupt Enable: enabled */
+	               | 0 << USART_RXSIE_bp  /* Receiver Start Frame Interrupt Enable: disabled */
+	               | 0 << USART_TXCIE_bp; /* Transmit Complete Interrupt Enable: disabled */
+
+	USART0.CTRLB = 0 << USART_MPCM_bp       /* Multi-processor Communication Mode: disabled */
+ 26e:	80 ec       	ldi	r24, 0xC0	; 192
+ 270:	86 83       	std	Z+6, r24	; 0x06
+	uint8_t x;
+
+	/* Initialize ringbuffers */
+	x = 0;
+
+	USART_0_rx_tail     = x;
+ 272:	10 92 10 3f 	sts	0x3F10, r1	; 0x803f10 <USART_0_rx_tail>
+	USART_0_rx_head     = x;
+ 276:	10 92 11 3f 	sts	0x3F11, r1	; 0x803f11 <USART_0_rx_head>
+	USART_0_rx_elements = x;
+ 27a:	10 92 0f 3f 	sts	0x3F0F, r1	; 0x803f0f <USART_0_rx_elements>
+	USART_0_tx_tail     = x;
+ 27e:	10 92 05 3f 	sts	0x3F05, r1	; 0x803f05 <USART_0_tx_tail>
+	USART_0_tx_head     = x;
+ 282:	10 92 06 3f 	sts	0x3F06, r1	; 0x803f06 <USART_0_tx_head>
+	USART_0_tx_elements = x;
+ 286:	10 92 04 3f 	sts	0x3F04, r1	; 0x803f04 <__data_end>
+
+	return 0;
+}
+ 28a:	80 e0       	ldi	r24, 0x00	; 0
+ 28c:	08 95       	ret
+
+0000028e <VREF_0_init>:
+
+	// VREF_CTRLB = 0 << VREF_ADC0REFEN_bp /* ADC0 reference enable: disabled */
+	//		 | 0 << VREF_DAC0REFEN_bp; /* DAC0/AC0 reference enable: disabled */
+
+	return 0;
+}
+ 28e:	80 e0       	ldi	r24, 0x00	; 0
+ 290:	08 95       	ret
+
+00000292 <_exit>:
+ 292:	f8 94       	cli
+
+00000294 <__stop_program>:
+ 294:	ff cf       	rjmp	.-2      	; 0x294 <__stop_program>

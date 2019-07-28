@@ -125,13 +125,6 @@ Discarded input sections
  .text          0x00000000        0x0 src/protected_io.o
  .data          0x00000000        0x0 src/protected_io.o
  .bss           0x00000000        0x0 src/protected_io.o
- .text.protected_write_io
-                0x00000000        0x8 src/protected_io.o
- .debug_line    0x00000000       0x55 src/protected_io.o
- .debug_info    0x00000000       0x81 src/protected_io.o
- .debug_abbrev  0x00000000       0x14 src/protected_io.o
- .debug_aranges
-                0x00000000       0x20 src/protected_io.o
  .text          0x00000000        0x0 src/rtc.o
  .data          0x00000000        0x0 src/rtc.o
  .bss           0x00000000        0x0 src/rtc.o
@@ -152,12 +145,6 @@ Discarded input sections
                 0x00000000        0xe src/usart_basic.o
  .text.USART_0_is_tx_busy
                 0x00000000       0x10 src/usart_basic.o
- .text.USART_0_read
-                0x00000000       0x32 src/usart_basic.o
- .text.USART_0_write
-                0x00000000       0x3e src/usart_basic.o
- .text.USART_0_enable
-                0x00000000        0xc src/usart_basic.o
  .text.USART_0_enable_rx
                 0x00000000        0xc src/usart_basic.o
  .text.USART_0_enable_tx
@@ -434,7 +421,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x296
+.text           0x00000000      0x3c4
  *(.vectors)
  .vectors       0x00000000       0x34 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATtiny_DFP/1.3.229/gcc/dev/attiny404/avrxmega3/short-calls/crtattiny404.o
                 0x00000000                __vector_default
@@ -522,61 +509,73 @@ END GROUP
  .text.atmel_start_init
                 0x0000006c        0x4 atmel_start.o
                 0x0000006c                atmel_start_init
- .text.main     0x00000070       0x4c main.o
+ .text.main     0x00000070       0xce main.o
                 0x00000070                main
  .text.ADC_0_init
-                0x000000bc        0xa src/adc_basic.o
-                0x000000bc                ADC_0_init
+                0x0000013e       0x14 src/adc_basic.o
+                0x0000013e                ADC_0_init
  .text.BOD_init
-                0x000000c6        0x4 src/bod.o
-                0x000000c6                BOD_init
+                0x00000152        0xa src/bod.o
+                0x00000152                BOD_init
  .text.CLKCTRL_init
-                0x000000ca        0x4 src/clkctrl.o
-                0x000000ca                CLKCTRL_init
+                0x0000015c        0xe src/clkctrl.o
+                0x0000015c                CLKCTRL_init
  .text.CPUINT_init
-                0x000000ce        0x4 src/cpuint.o
-                0x000000ce                CPUINT_init
+                0x0000016a        0x4 src/cpuint.o
+                0x0000016a                CPUINT_init
  .text.mcu_init
-                0x000000d2       0x26 src/driver_init.o
-                0x000000d2                mcu_init
+                0x0000016e       0x26 src/driver_init.o
+                0x0000016e                mcu_init
  .text.USART_0_initialization
-                0x000000f8       0x14 src/driver_init.o
-                0x000000f8                USART_0_initialization
+                0x00000194       0x14 src/driver_init.o
+                0x00000194                USART_0_initialization
  .text.system_init
-                0x0000010c       0x30 src/driver_init.o
-                0x0000010c                system_init
+                0x000001a8       0x30 src/driver_init.o
+                0x000001a8                system_init
+ .text.protected_write_io
+                0x000001d8        0x8 src/protected_io.o
+                0x000001d8                protected_write_io
  .text.RTC_0_init
-                0x0000013c        0xc src/rtc.o
-                0x0000013c                RTC_0_init
+                0x000001e0       0x14 src/rtc.o
+                0x000001e0                RTC_0_init
  .text.SLPCTRL_init
-                0x00000148        0x4 src/slpctrl.o
-                0x00000148                SLPCTRL_init
+                0x000001f4        0x4 src/slpctrl.o
+                0x000001f4                SLPCTRL_init
  .text.TIMER_0_init
-                0x0000014c        0x4 src/tca.o
-                0x0000014c                TIMER_0_init
+                0x000001f8        0x4 src/tca.o
+                0x000001f8                TIMER_0_init
  .text.USART_0_default_rx_isr_cb
-                0x00000150       0x2c src/usart_basic.o
-                0x00000150                USART_0_default_rx_isr_cb
+                0x000001fc       0x2c src/usart_basic.o
+                0x000001fc                USART_0_default_rx_isr_cb
  .text.USART_0_default_udre_isr_cb
-                0x0000017c       0x3e src/usart_basic.o
-                0x0000017c                USART_0_default_udre_isr_cb
+                0x00000228       0x3e src/usart_basic.o
+                0x00000228                USART_0_default_udre_isr_cb
  .text.__vector_22
-                0x000001ba       0x52 src/usart_basic.o
-                0x000001ba                __vector_22
+                0x00000266       0x52 src/usart_basic.o
+                0x00000266                __vector_22
  .text.__vector_23
-                0x0000020c       0x52 src/usart_basic.o
-                0x0000020c                __vector_23
+                0x000002b8       0x52 src/usart_basic.o
+                0x000002b8                __vector_23
+ .text.USART_0_read
+                0x0000030a       0x32 src/usart_basic.o
+                0x0000030a                USART_0_read
+ .text.USART_0_write
+                0x0000033c       0x3e src/usart_basic.o
+                0x0000033c                USART_0_write
  .text.USART_0_init
-                0x0000025e       0x30 src/usart_basic.o
-                0x0000025e                USART_0_init
+                0x0000037a       0x30 src/usart_basic.o
+                0x0000037a                USART_0_init
+ .text.USART_0_enable
+                0x000003aa        0xc src/usart_basic.o
+                0x000003aa                USART_0_enable
  .text.VREF_0_init
-                0x0000028e        0x4 src/vref.o
-                0x0000028e                VREF_0_init
-                0x00000292                . = ALIGN (0x2)
+                0x000003b6        0xa src/vref.o
+                0x000003b6                VREF_0_init
+                0x000003c0                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000292        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega3/short-calls\libgcc.a(_exit.o)
-                0x00000292                _exit
-                0x00000292                exit
+ .fini9         0x000003c0        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega3/short-calls\libgcc.a(_exit.o)
+                0x000003c0                _exit
+                0x000003c0                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -595,16 +594,17 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000292        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega3/short-calls\libgcc.a(_exit.o)
+ .fini0         0x000003c0        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega3/short-calls\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000296                _etext = .
+                0x000003c4                _etext = .
 
-.rodata
+.rodata         0x000083c4        0x8 load address 0x000003c4
  *(.rodata)
+ .rodata        0x000083c4        0x8 main.o
  *(.rodata*)
  *(.gnu.linkonce.r*)
 
-.data           0x00803f00        0x4 load address 0x00000296
+.data           0x00803f00        0x4 load address 0x000003cc
                 0x00803f00                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -641,8 +641,8 @@ END GROUP
                 0x00803f12        0x8 src/usart_basic.o
  *(COMMON)
                 0x00803f1a                PROVIDE (__bss_end, .)
-                0x00000296                __data_load_start = LOADADDR (.data)
-                0x0000029a                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000003cc                __data_load_start = LOADADDR (.data)
+                0x000003d0                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00803f1a        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
@@ -724,7 +724,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x250
+.debug_aranges  0x00000000      0x270
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x20 atmel_start.o
@@ -741,116 +741,122 @@ END GROUP
  .debug_aranges
                 0x000000f8       0x40 src/driver_init.o
  .debug_aranges
-                0x00000138       0x20 src/rtc.o
+                0x00000138       0x20 src/protected_io.o
  .debug_aranges
-                0x00000158       0x20 src/slpctrl.o
+                0x00000158       0x20 src/rtc.o
  .debug_aranges
-                0x00000178       0x20 src/tca.o
+                0x00000178       0x20 src/slpctrl.o
  .debug_aranges
-                0x00000198       0x98 src/usart_basic.o
+                0x00000198       0x20 src/tca.o
  .debug_aranges
-                0x00000230       0x20 src/vref.o
+                0x000001b8       0x98 src/usart_basic.o
+ .debug_aranges
+                0x00000250       0x20 src/vref.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x31c0
+.debug_info     0x00000000     0x3b00
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000     0x132c C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATtiny_DFP/1.3.229/gcc/dev/attiny404/avrxmega3/short-calls/crtattiny404.o
  .debug_info    0x0000132c       0x9a atmel_start.o
- .debug_info    0x000013c6      0x393 main.o
- .debug_info    0x00001759      0x483 src/adc_basic.o
- .debug_info    0x00001bdc       0x8d src/bod.o
- .debug_info    0x00001c69       0x8d src/clkctrl.o
- .debug_info    0x00001cf6       0x8d src/cpuint.o
- .debug_info    0x00001d83      0xa14 src/driver_init.o
- .debug_info    0x00002797      0x344 src/rtc.o
- .debug_info    0x00002adb       0x8d src/slpctrl.o
- .debug_info    0x00002b68       0x8d src/tca.o
- .debug_info    0x00002bf5      0x53e src/usart_basic.o
- .debug_info    0x00003133       0x8d src/vref.o
+ .debug_info    0x000013c6      0x6cd main.o
+ .debug_info    0x00001a93      0x4e1 src/adc_basic.o
+ .debug_info    0x00001f74      0x1d6 src/bod.o
+ .debug_info    0x0000214a      0x38e src/clkctrl.o
+ .debug_info    0x000024d8       0x8d src/cpuint.o
+ .debug_info    0x00002565      0xa14 src/driver_init.o
+ .debug_info    0x00002f79       0x81 src/protected_io.o
+ .debug_info    0x00002ffa      0x3b6 src/rtc.o
+ .debug_info    0x000033b0       0x8d src/slpctrl.o
+ .debug_info    0x0000343d       0x8d src/tca.o
+ .debug_info    0x000034ca      0x53e src/usart_basic.o
+ .debug_info    0x00003a08       0xf8 src/vref.o
 
-.debug_abbrev   0x00000000     0x1c2d
+.debug_abbrev   0x00000000     0x1e02
  *(.debug_abbrev)
  .debug_abbrev  0x00000000     0x1222 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATtiny_DFP/1.3.229/gcc/dev/attiny404/avrxmega3/short-calls/crtattiny404.o
  .debug_abbrev  0x00001222       0x63 atmel_start.o
- .debug_abbrev  0x00001285      0x17a main.o
- .debug_abbrev  0x000013ff      0x1ab src/adc_basic.o
- .debug_abbrev  0x000015aa       0x51 src/bod.o
- .debug_abbrev  0x000015fb       0x51 src/clkctrl.o
- .debug_abbrev  0x0000164c       0x51 src/cpuint.o
- .debug_abbrev  0x0000169d      0x1d6 src/driver_init.o
- .debug_abbrev  0x00001873       0xba src/rtc.o
- .debug_abbrev  0x0000192d       0x51 src/slpctrl.o
- .debug_abbrev  0x0000197e       0x51 src/tca.o
- .debug_abbrev  0x000019cf      0x20d src/usart_basic.o
- .debug_abbrev  0x00001bdc       0x51 src/vref.o
+ .debug_abbrev  0x00001285      0x207 main.o
+ .debug_abbrev  0x0000148c      0x1ab src/adc_basic.o
+ .debug_abbrev  0x00001637       0x9d src/bod.o
+ .debug_abbrev  0x000016d4      0x105 src/clkctrl.o
+ .debug_abbrev  0x000017d9       0x51 src/cpuint.o
+ .debug_abbrev  0x0000182a      0x1d6 src/driver_init.o
+ .debug_abbrev  0x00001a00       0x14 src/protected_io.o
+ .debug_abbrev  0x00001a14       0xd4 src/rtc.o
+ .debug_abbrev  0x00001ae8       0x51 src/slpctrl.o
+ .debug_abbrev  0x00001b39       0x51 src/tca.o
+ .debug_abbrev  0x00001b8a      0x20d src/usart_basic.o
+ .debug_abbrev  0x00001d97       0x6b src/vref.o
 
-.debug_line     0x00000000     0x10e7
+.debug_line     0x00000000     0x132d
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x136 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATtiny_DFP/1.3.229/gcc/dev/attiny404/avrxmega3/short-calls/crtattiny404.o
  .debug_line    0x00000136       0x60 atmel_start.o
- .debug_line    0x00000196      0x20c main.o
- .debug_line    0x000003a2      0x203 src/adc_basic.o
- .debug_line    0x000005a5       0xa2 src/bod.o
- .debug_line    0x00000647       0xa6 src/clkctrl.o
- .debug_line    0x000006ed       0xa5 src/cpuint.o
- .debug_line    0x00000792      0x2c1 src/driver_init.o
- .debug_line    0x00000a53      0x114 src/rtc.o
- .debug_line    0x00000b67       0xa6 src/slpctrl.o
- .debug_line    0x00000c0d       0xa2 src/tca.o
- .debug_line    0x00000caf      0x395 src/usart_basic.o
- .debug_line    0x00001044       0xa3 src/vref.o
+ .debug_line    0x00000196      0x28f main.o
+ .debug_line    0x00000425      0x20f src/adc_basic.o
+ .debug_line    0x00000634      0x108 src/bod.o
+ .debug_line    0x0000073c      0x136 src/clkctrl.o
+ .debug_line    0x00000872       0xa5 src/cpuint.o
+ .debug_line    0x00000917      0x2c1 src/driver_init.o
+ .debug_line    0x00000bd8       0x55 src/protected_io.o
+ .debug_line    0x00000c2d      0x11a src/rtc.o
+ .debug_line    0x00000d47       0xa6 src/slpctrl.o
+ .debug_line    0x00000ded       0xa2 src/tca.o
+ .debug_line    0x00000e8f      0x395 src/usart_basic.o
+ .debug_line    0x00001224      0x109 src/vref.o
 
-.debug_frame    0x00000000      0x3e0
+.debug_frame    0x00000000      0x3f0
  *(.debug_frame)
  .debug_frame   0x00000000       0x24 atmel_start.o
- .debug_frame   0x00000024       0x24 main.o
- .debug_frame   0x00000048       0x94 src/adc_basic.o
- .debug_frame   0x000000dc       0x24 src/bod.o
- .debug_frame   0x00000100       0x24 src/clkctrl.o
- .debug_frame   0x00000124       0x24 src/cpuint.o
- .debug_frame   0x00000148       0x64 src/driver_init.o
- .debug_frame   0x000001ac       0x24 src/rtc.o
- .debug_frame   0x000001d0       0x24 src/slpctrl.o
- .debug_frame   0x000001f4       0x24 src/tca.o
- .debug_frame   0x00000218      0x1a4 src/usart_basic.o
- .debug_frame   0x000003bc       0x24 src/vref.o
+ .debug_frame   0x00000024       0x34 main.o
+ .debug_frame   0x00000058       0x94 src/adc_basic.o
+ .debug_frame   0x000000ec       0x24 src/bod.o
+ .debug_frame   0x00000110       0x24 src/clkctrl.o
+ .debug_frame   0x00000134       0x24 src/cpuint.o
+ .debug_frame   0x00000158       0x64 src/driver_init.o
+ .debug_frame   0x000001bc       0x24 src/rtc.o
+ .debug_frame   0x000001e0       0x24 src/slpctrl.o
+ .debug_frame   0x00000204       0x24 src/tca.o
+ .debug_frame   0x00000228      0x1a4 src/usart_basic.o
+ .debug_frame   0x000003cc       0x24 src/vref.o
 
-.debug_str      0x00000000     0x1561
+.debug_str      0x00000000     0x1bfd
  *(.debug_str)
  .debug_str     0x00000000      0x831 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATtiny_DFP/1.3.229/gcc/dev/attiny404/avrxmega3/short-calls/crtattiny404.o
  .debug_str     0x00000831      0x16f atmel_start.o
                                 0x1a3 (size before relaxing)
- .debug_str     0x000009a0       0xad main.o
-                                0x240 (size before relaxing)
- .debug_str     0x00000a4d      0x333 src/adc_basic.o
-                                0x4e6 (size before relaxing)
- .debug_str     0x00000d80       0x16 src/bod.o
-                                0x190 (size before relaxing)
- .debug_str     0x00000d96       0x1e src/clkctrl.o
-                                0x198 (size before relaxing)
- .debug_str     0x00000db4       0x1c src/cpuint.o
+ .debug_str     0x000009a0      0x2fc main.o
+                                0x474 (size before relaxing)
+ .debug_str     0x00000c9c      0x3f1 src/adc_basic.o
+                                0x5c6 (size before relaxing)
+ .debug_str     0x0000108d       0xc2 src/bod.o
+                                0x2ba (size before relaxing)
+ .debug_str     0x0000114f      0x215 src/clkctrl.o
+                                0x4a5 (size before relaxing)
+ .debug_str     0x00001364       0x1c src/cpuint.o
                                 0x196 (size before relaxing)
- .debug_str     0x00000dd0      0x3af src/driver_init.o
+ .debug_str     0x00001380      0x24b src/driver_init.o
                                 0x5f4 (size before relaxing)
- .debug_str     0x0000117f       0xa2 src/rtc.o
-                                0x316 (size before relaxing)
- .debug_str     0x00001221       0x11 src/slpctrl.o
+ .debug_str     0x000015cb      0x208 src/rtc.o
+                                0x4a6 (size before relaxing)
+ .debug_str     0x000017d3       0x11 src/slpctrl.o
                                 0x198 (size before relaxing)
- .debug_str     0x00001232        0xd src/tca.o
+ .debug_str     0x000017e4        0xd src/tca.o
                                 0x194 (size before relaxing)
- .debug_str     0x0000123f      0x314 src/usart_basic.o
+ .debug_str     0x000017f1      0x2ea src/usart_basic.o
                                 0x519 (size before relaxing)
- .debug_str     0x00001553        0xe src/vref.o
-                                0x194 (size before relaxing)
+ .debug_str     0x00001adb      0x122 src/vref.o
+                                0x2b0 (size before relaxing)
 
-.debug_loc      0x00000000      0x5bc
+.debug_loc      0x00000000      0x71d
  *(.debug_loc)
- .debug_loc     0x00000000      0x150 main.o
- .debug_loc     0x00000150       0x87 src/adc_basic.o
- .debug_loc     0x000001d7      0x1cb src/driver_init.o
- .debug_loc     0x000003a2      0x21a src/usart_basic.o
+ .debug_loc     0x00000000      0x288 main.o
+ .debug_loc     0x00000288       0x87 src/adc_basic.o
+ .debug_loc     0x0000030f       0x29 src/clkctrl.o
+ .debug_loc     0x00000338      0x1cb src/driver_init.o
+ .debug_loc     0x00000503      0x21a src/usart_basic.o
 
 .debug_macinfo
  *(.debug_macinfo)

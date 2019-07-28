@@ -50,9 +50,9 @@ int8_t RTC_0_init()
 
 	// RTC.CNT = 0x0; /* Counter: 0x0 */
 
-	// RTC.CTRLA = RTC_PRESCALER_DIV1_gc /* 1 */
-	//		 | 0 << RTC_RTCEN_bp /* Enable: disabled */
-	//		 | 0 << RTC_RUNSTDBY_bp; /* Run In Standby: disabled */
+	RTC.CTRLA = RTC_PRESCALER_DIV1_gc   /* 1 */
+	            | 1 << RTC_RTCEN_bp     /* Enable: enabled */
+	            | 1 << RTC_RUNSTDBY_bp; /* Run In Standby: enabled */
 
 	// RTC.PER = 0xffff; /* Period: 0xffff */
 

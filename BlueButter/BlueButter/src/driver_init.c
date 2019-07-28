@@ -83,8 +83,6 @@ void system_init()
 {
 	mcu_init();
 
-	/* PORT setting on PA0 */
-
 	/* PORT setting on PA1 */
 
 	/* PORT setting on PA2 */

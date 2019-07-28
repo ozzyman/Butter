@@ -1,0 +1,89 @@
+Command Summary - Bluebutter
+
+V0.5
+
+Basic Byte-wide output. Bytes recieved in a Bluetooth message are output directly to port A. Port B is not supported
+
+Message format:
+
+Oxxxxxxx<\n>
+
+O is the output byte (first byte of the message) all other bytes are ignored. 
+Maximum of 8 bytes in the message, more bytes will overwrite the last sent byte.
+
+Response:
+
+"Out <h>" is returned via Bluetooth, and the activity LED flashes once.
+
+<h> is the hex code that was writtten to the port.
+
+
+
+
+
+
+** Future versions: **
+----------------------
+
+Format will be of the form
+
+<CPNAT> (5 bytes)
+
+Where:
+
+C is command type (O)utput, (I)nput, (Measure), (C)onfigure)
+P is port (A or B)
+N is pin number (0-7)or A for whole port
+A is action or data (depends on N)
+T is a time (00-FF)
+
+
+Command types:
+
+Output
+<O>pnat 
+
+	p is port to be written to ("A" or "B")
+	n is pin number ("0"-"7" or "A")
+		If the pin number is "A", the action is applied to the entire port.
+
+	a is the action (1)/(0)/(T)oggle/(P)ulse)
+
+		For (1), (0) and (T) actions, any futher bytes until a newline are ignored.
+
+		"1" sets the selected pin to logic 1
+		"0" sets the selected pin to logic 0
+		"T" toggles the state of the selected pin (i.e if it is logic 1, it will be set to logic 0 and vice versa)	
+		"P" is immediately followed by t (1 byte, 0x00-0xFF), which is the pulse time in increments of 100ms. 
+			This gives a pulse duration of 0.1 to 25.5 seconds. The selected pin N is toggled 
+			at the beginning and end of the time period. 
+
+
+Input
+<I>P
+	P is the port to be read ("A" or "B"). The state of the whole port is read and returned as a hex value.
+
+
+Measure
+<M>P
+	P is the system parameter to be measured, either supply voltage ("V") or Bluetooth RSSI ("R"). Both are effected using Bluetooth command mode.
+
+
+Configure
+<C>PNA
+	P is the port to configure ("A" or "B")
+	N is the pin number to be configured ("0"-"7" or "A")	
+		If the pin number is "A", the entire port is set according to the configuration action.
+
+	A is the configuration action (0-3)
+
+	Configuration actions are 
+		0 - Output
+		1 - Input
+		2 - Inverted Output
+		3 - Inverted Input
+ 
+
+	Future versions may also include a "Z" configuration port option to allow the bluetooth module to be configured.
+	
+
